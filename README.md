@@ -11,14 +11,14 @@ Combine all your work (solution folder) in one .zip file after performing “Cle
 
 **Plagiarism: Zero marks** in the project for all members if any significant part of project is found plagiarized. A code is considered plagiarized if **more than 20%** code is not your own work.  
 
-**InterPlanetary File System (IPFS)** 
+## **InterPlanetary File System (IPFS)** 
 
 IPFS provides functionality similar to BitTorrent making it extremely easy to publish your content and make it accessible anywhere, anytime. The obvious way to make use of IPFS is file sharing. This is perhaps the only use of IPFS that you are going to implement in this project, however, IPFS is capable of much more. In particular, the following properties of IPFS will be handled by your implementation.  
 
 - IPFS files are content addressable. It means that each file is represented by the hash of its content. This hash is used to search and retrieve the file instead of filename. In other words, two files with the same name but different content will have different hash values.   
 - IPFS files/folders are not located on a single machine but rather stored on multiple machines geo- distributed across the internet. A data structure named Distributed Hash Table (DHT) is used to manage storage/retrieval of files across different machines on the Internet.  
 
-**Distributed Hash Table (DHT)** 
+#### **Distributed Hash Table (DHT)** 
 
 As mentioned above, we are considering a scenario where the data (i.e., IPFS file/folder) is not located on a single machine but rather stored on multiple machines geo-distributed across the Internet. In such a scenario, searching or retrieval of  data is very challenging, as it is hard to determine on which machine the required data is stored. The data structures used for efficiently search data stored on a single machine such as hash tables cannot be directly employed in a distributed environment. Figure 1 shows the concept of data/ storage and lookup in a distributed environment.   ![ref1]
 
@@ -43,7 +43,7 @@ A distributed hash table (DHT) provides a lookup (or search) service similar to 
 
 In this project, we will implement a special type of DHT that has a circular identifier space, named Ring DHTs. As most of the students are not familiar with the concepts of computer networks and distributed  systems,  the  following  description  simplifies  many  aspects  of  the  DHT  and  primarily focuses on emulating the DHT functionality on a single machine.  
 
-**Properties of Ring DHT** 
+#### **Properties of Ring DHT** 
 
 - Ring  DHT  uses  160-bit  circular  identifier  space  using  SHA-1.  Figure  3  shows  only  a  4-bit identifier space to simplify the explanation. 
 
@@ -71,7 +71,7 @@ In this project, we will implement a special type of DHT that has a circular ide
 
 **Implementation notes:** Instead of large movie files, use simple text files with less content.  
 
-**Search Algorithm** 
+#### **Search Algorithm** 
 
 The request to search a file (i.e., key = hash of file content) can arrive on any machine. The machine will first determine whether the file is locally stored, i.e., id e of the file is less than or equal to the id p of the machine (p ≥ e). If the file is not locally found, the search request is forwarded to the next node in the circular linked list and so on. This very simple search algorithm is not very efficient with a complexity of O(N), where N is the number of machines in the distributed system. Why? ![ref1]
 
@@ -134,7 +134,7 @@ The data storage request can arrive on any machine. On receiving the key, value 
 1. Option to add new machines on the fly without disrupting the functionality of Ring DHT. 
 1. Option to remove any machine on the fly without disrupting the functionality of Ring DHT. 
 
-**What to submit** 
+#### **What to submit** 
 
 Submit  your  code  for  this  project,  programmed  in  C++  using  Visual  Studio  2019.  A  document highlighting the design in terms of relationships/associations between different classes of your program must be submitted. The code needs to be well documented so that grader can get a good idea of what each of your procedures do.  
 
